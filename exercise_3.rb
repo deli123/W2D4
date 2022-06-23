@@ -151,7 +151,7 @@ end
 def vowel_rotate(str)
     vowels = find_vowels(str)
     vowels = vowels.reverse
-    print vowels 
+
     new_str = "" 
     str.each_char do |c|
         if "aeiou".include?(c)
