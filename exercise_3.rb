@@ -167,11 +167,11 @@ def vowel_rotate(str)
 end
 
 # Examples
-p vowel_rotate('computer')      # => "cempotur"
-p vowel_rotate('oranges')       # => "erongas"
-p vowel_rotate('headphones')    # => "heedphanos"
-p vowel_rotate('bootcamp')      # => "baotcomp"
-p vowel_rotate('awesome')       # => "ewasemo"
+# p vowel_rotate('computer')      # => "cempotur"
+# p vowel_rotate('oranges')       # => "erongas"
+# p vowel_rotate('headphones')    # => "heedphanos"
+# p vowel_rotate('bootcamp')      # => "baotcomp"
+# p vowel_rotate('awesome')       # => "ewasemo"
 
 class String
     def select(&prc)
@@ -269,5 +269,26 @@ end
 # p lucas_sequence(6)   # => [2, 1, 3, 4, 7, 11]
 # p lucas_sequence(8)   # => [2, 1, 3, 4, 7, 11, 18, 29]
 
-def prime_factorization
+def get_product(arr)
+    arr.inject { |prod, el| prod * el }
 end
+
+def prime_factorization(num)
+    (2...num).each do |fact|
+        if (num % fact == 0)
+            otherFact = num / fact
+            return [ *prime_factorization(fact), *prime_factorization(otherFact) ]
+        end
+    end
+
+    [num]
+end
+
+# Examples
+p prime_factorization(12)     # => [2, 2, 3]
+p prime_factorization(24)     # => [2, 2, 2, 3]
+p prime_factorization(25)     # => [5, 5]
+p prime_factorization(60)     # => [2, 2, 3, 5]
+p prime_factorization(7)      # => [7]
+p prime_factorization(11)     # => [11]
+p prime_factorization(2017)   # => [2017]
